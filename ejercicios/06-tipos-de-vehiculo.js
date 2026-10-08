@@ -33,15 +33,34 @@
 // ============================================================
 
 class Vehiculo {
-  // Tu código aquí
+  constructor(placa, pasajeros) {
+    this.placa = placa;
+    this.pasajeros = pasajeros;
+  }
+
+  tarifa() {
+    return 2950;
+  }
+
+  reporte() {
+    return `${this.placa} | ${this.pasajeros} pasajeros | Tarifa: $${this.tarifa()}`;
+  }
+}
+class Alimentador extends Vehiculo {
+  tarifa() {
+    return 0;
+  }
 }
 
-class Alimentador {
-  // Tu código aquí
-}
+class BusDual extends Vehiculo {
+  constructor(placa, pasajeros, esElectrico) {
+    super(placa, pasajeros);
+    this.esElectrico = esElectrico;
+  }
 
-class BusDual {
-  // Tu código aquí
+  tarifa() {
+    return this.esElectrico ? 2500 : 3200;
+  }
 }
 
 // No borres esta línea: es la puerta por donde el test usa tus clases
